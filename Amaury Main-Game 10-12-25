@@ -1,1 +1,49 @@
+import pygame                  
+import time                    
 
+pygame.init()                  
+
+breedte = 1200             
+hoogte = 1000       
+
+background_color = 0, 0, 0     
+
+screen = pygame.display.set_mode((breedte, hoogte))
+draak_origineel = pygame.image.load("FDPA.png")
+draak = pygame.image.load("FDPA.png")
+draak_rechthoek = draak.get_rect()
+draak_rechthoek.center = (400,200)
+fruit = pygame.image.load("Dragonfruit.png")  
+fruit_rechthoek = Dragonfruit.get_rect()  
+fruit_rechthoek.center = (100,100)  
+
+dier_leeft = True  
+honger = 0  
+
+while dier_leeft:  
+    pygame.display.flip()  
+    screen.fill(background_color)  
+    screen.blit(draak, draak_rechthoek)  
+    screen.blit(sla, sla_rechthoek)  
+    print('Ik heb zoveel honger:', honger)
+    pygame.draw.rect(screen,(100,100,100), draak_rechthoek, 1)
+    honger = honger + 1
+    midden = draak_rechthoek.center
+    draak = pygame.transform.rotozoom(draak_origineel,0, (1000-honger)/1000)
+    draak_rechthoek.center = midden
+    if honger > 1000:
+        
+        dier_leeft = False
+        
+    pygame.event.get()
+    
+    locatie_muis = pygame.mouse.get_pos()  
+    knoppen = pygame.mouse.get_pressed()     
+    if knoppen[0] == 1:
+        if fruit_rechthoek.collidepoint(locatie_muis):
+            honger = honger - 30
+            print('er is geklikt')
+            
+        time.sleep(0.1)  
+  
+print('Helaas, je draak is overleden')
