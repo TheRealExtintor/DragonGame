@@ -23,7 +23,7 @@ honger = 0
 while dier_leeft:  
     pygame.display.flip()  
     screen.fill(background_color)  
-    screen.blit(schildpad, schildpad_rechthoek)  
+    screen.blit(draak, draak_rechthoek)  
     screen.blit(sla, sla_rechthoek)  
     print('Ik heb zoveel honger:', honger)
     pygame.draw.rect(screen,(100,100,100), schildpad_rechthoek, 1)
