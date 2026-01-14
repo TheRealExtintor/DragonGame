@@ -1,0 +1,37 @@
+import pygame
+
+pygame.init()
+
+breedte = 800
+hoogte = 600
+screen = pygame.display.set_mode((breedte, hoogte))
+def Mainscreen():
+  
+  background = pygame.image.load("Mainscreen/THumbnail.png") 
+  screen.blit(background, (-50, 0))
+
+  startbutton = pygame.image.load("Mainscreen/Startbutton.png")
+  startbuttonrect = startbutton.get_rect()
+
+  exitbutton = pygame.image.load("Mainscreen/Exitbutton.png")
+  exitbuttonrect = exitbutton.get_rect()
+    
+  while True:
+      startbuttonrect.center = (400, 350)
+      screen.blit(startbutton, startbuttonrect)
+                
+      exitbuttonrect.center = (400, 500)
+      screen.blit(exitbutton, exitbuttonrect)
+      pygame.display.flip()
+    
+
+      pygame.event.get()
+      locatie_muis = pygame.mouse.get_pos()
+      knoppen = pygame.mouse.get_pressed()
+    
+      if knoppen[0] == 1:
+        if startbuttonrect.collidepoint(locatie_muis):
+          exit()
+        if exitbuttonrect.collidepoint(locatie_muis):
+          exit()
+Mainscreen()
