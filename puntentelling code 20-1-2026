@@ -1,6 +1,0 @@
-font = pygame.font.SysFont(None,30)
-while draak_leeft:
-  honger = 0             
-  spring_teller = 0
-  honger_tekst = font.render(f''Honger:{int(honger)}'', True (0,0,0))
-  screen.blit(honger_tekst,(10,10))
